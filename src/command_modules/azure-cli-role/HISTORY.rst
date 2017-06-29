@@ -2,8 +2,8 @@
 
 Release History
 ===============
-(unreleased)
-++++++++++++++++++
+2.0.8b2 (2017-06-29)
+++++++++++++++++++++
 create-for-rbac: support output in SDK auth file format
 
 2.0.7 (2017-06-21)
