@@ -2,6 +2,10 @@
 
 Release History
 ===============
+0.1.10b5 (2017-06-29)
++++++++++++++++++++++
+* minor fixes
+
 0.1.9 (2017-06-21)
 ++++++++++++++++++
 * BC: webapp: remove all commands under 'az appservice web'
