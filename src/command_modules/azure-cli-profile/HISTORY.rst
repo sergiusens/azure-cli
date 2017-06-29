@@ -2,8 +2,8 @@
 
 Release History
 ===============
-(Unreleased)
-++++++++++++++++++
+2.0.8b3 (2017-06-29)
+++++++++++++++++++++
 account show: support output in SDK auth file format
 
 2.0.7 (2017-06-21)
