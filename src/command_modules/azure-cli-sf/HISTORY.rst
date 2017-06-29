@@ -3,8 +3,8 @@
 Release History
 ===============
 
-Unreleased
-++++++++++
+1.0.5b12 (2017-06-29)
++++++++++++++++++++++
 * Fixes an issue with large files in applications being truncated on upload (#3666)
 
 1.0.4 (2017-06-21)
