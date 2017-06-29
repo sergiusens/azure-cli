@@ -2,6 +2,10 @@
 
 Release History
 ===============
+2.0.10b11 (2017-06-29)
+++++++++++++++++++++++
+* minor fixes
+
 2.0.9 (2017-06-21)
 ++++++++++++++++++
 * vm/vmss: lower thread number used for 'vm image list --all' to avoid exceeding the OS opened file limits  
