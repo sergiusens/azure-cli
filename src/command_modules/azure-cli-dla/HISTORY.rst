@@ -2,8 +2,8 @@
 
 Release History
 ===============
-0.0.10 (unreleased)
-+++++++++++++++++++
+0.0.10b12 (2017-06-29)
+++++++++++++++++++++++
 * Add commands for compute policy management under the `dla account compute-policy` heading
 * Add show and list commands for job pipeline and recurrence under `dla job pipeline` and `dla job recurrence` respectively
 
