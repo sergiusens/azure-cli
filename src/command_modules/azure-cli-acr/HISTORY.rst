@@ -2,6 +2,10 @@
 
 Release History
 ===============
+2.0.8b5 (2017-06-29)
+++++++++++++++++++++
+* minor fixes
+
 2.0.7 (2017-06-21)
 ++++++++++++++++++
 * Add managed registries with Managed SKU.
