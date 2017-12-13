@@ -58,7 +58,7 @@ DEPENDENCIES = [
     'jmespath',
     'knack==0.3.0',
     'msrest>=0.4.4',
-    'msrestazure>=0.4.7',
+    'msrestazure>=0.4.19',
     'paramiko',
     'pip',
     'pygments',
