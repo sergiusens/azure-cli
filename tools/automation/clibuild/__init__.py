@@ -16,7 +16,7 @@ from ..utilities.display import print_heading
 from ..utilities.path import get_repo_root
 from ..utilities.pypi import is_available_on_pypi
 
-BUILD_TYPES = ['debian', 'docker', 'rpm', 'pypi', 'msi', 'homebrew']
+BUILD_TYPES = ['debian', 'docker', 'rpm', 'pypi', 'msi', 'homebrew', 'snap']
 
 
 def build_debian(git_url, git_branch, cli_version, artifact_dir, arg_ns=None):
@@ -28,6 +28,17 @@ def build_debian(git_url, git_branch, cli_version, artifact_dir, arg_ns=None):
     print('Debian build running. Use `docker logs -f {}`'.format(container_id))
     exit_code = check_output(['docker', 'wait', container_id], universal_newlines=True).strip()
     print('COMPLETED Debian build. Exit code {}'.format(exit_code))
+
+
+def build_snap(git_url, git_branch, cli_version, artifact_dir, arg_ns=None):
+    cmd = ['docker', 'run', '-d', '-e', 'CLI_VERSION=' + cli_version, '-e', 'BUILD_ARTIFACT_DIR=/artifacts',
+           '-v', artifact_dir + ':/artifacts', 'snapcore/snapcraft', '/bin/bash', '-cx',
+           'apt-get update && git clone --progress --verbose {git_url} --branch {git_branch} /repo_clone '
+           '&& cd /repo_clone && build_scripts/snap/snapcraft_build.sh {git_url} {git_branch}'.format(git_url=git_url, git_branch=git_branch)]
+    container_id = check_output(cmd, universal_newlines=True).strip()
+    print('Snap build running. Use `docker logs -f {}`'.format(container_id))
+    exit_code = check_output(['docker', 'wait', container_id], universal_newlines=True).strip()
+    print('COMPLETED Snap build. Exit code {}'.format(exit_code))
 
 
 def build_docker(git_url, git_branch, cli_version, artifact_dir, arg_ns=None):
@@ -95,6 +106,8 @@ def build_homebrew(git_url, git_branch, cli_version, artifact_dir, arg_ns=None):
 def build_dispatch(build_type, git_url, git_branch, cli_version, artifact_dir, arg_ns=None):
     if build_type == 'debian':
         build_debian(git_url, git_branch, cli_version, artifact_dir, arg_ns=arg_ns)
+    elif build_type == 'snap':
+        build_snap(git_url, git_branch, cli_version, artifact_dir, arg_ns=arg_ns)
     elif build_type == 'docker':
         build_docker(git_url, git_branch, cli_version, artifact_dir, arg_ns=arg_ns)
     elif build_type == 'rpm':
