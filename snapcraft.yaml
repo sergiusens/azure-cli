@@ -15,16 +15,16 @@ apps:
 parts:
   completion:
     plugin: dump
-    # source: https://derekb.blob.core.windows.net/public/az-comp.tar.gz
-    # source-checksum: sha256/f275be33ec4818665f7d49439e23208e95708a276782438d209bad9523b1b634
-    source: https://derekb.blob.core.windows.net/public/az-comp-no-alias.tar.gz
-    source-checksum: sha256/500f03af754d4371900a5e68a7c7abca97e168cf70b1a5817162f9d3447722a5
+    source: https://github.com/Azure/azure-cli.git
+    source-tag: azure-cli-$SNAPCRAFT_PROJECT_VERSION
+    source-type: git
     stage:
       - az.snap.completion
   azure-cli:
     plugin: python
-    source: https://azurecliprod.blob.core.windows.net/releases/azure-cli-$SNAPCRAFT_PROJECT_VERSION.tar.gz
-    source-checksum: sha256/3d49bf2cac972f441d4b78e1ea38ba43f18a3568fb5799eb3aa920551ccd6965
+    source: https://github.com/Azure/azure-cli.git
+    source-tag: azure-cli-$SNAPCRAFT_PROJECT_VERSION
+    source-type: git
     source-subdir: src/azure-cli
     python-version: python3
     organize:
