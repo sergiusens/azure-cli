@@ -10,18 +10,17 @@ apps:
   az:
     # https://bugs.launchpad.net/snappy/+bug/1664427
     command: usr/bin/python -m azure.cli
-    completer: az.completion
+    completer: az.snap.completion
+    aliases: [az]
 parts:
   completion:
     plugin: dump
-    # source: https://azurecliprod.blob.core.windows.net/releases/azure-cli-$SNAPCRAFT_PROJECT_VERSION.tar.gz
-    # source-checksum: sha256/3d49bf2cac972f441d4b78e1ea38ba43f18a3568fb5799eb3aa920551ccd6965
-    # source: https://gist.githubusercontent.com/derekbekoe/6dbb82badf4c79d9fd0774b11c8d39b3/raw/95d59a9445a56d4e9622f6221d5b4bbdae40b8c2/az.completion
-    # source-checksum: sha256/8b6a0ba929418c8b1d2f4383ba22cca8ee814123938274f6a047cc0278f72b6e
-    source: https://derekb.blob.core.windows.net/public/az-comp.tar.gz
-    source-checksum: sha256/47a0004ea97b8ab60a56f2aa2e5c8ecfc494c1f4eb15a3461d0e0c307c3ececa
+    # source: https://derekb.blob.core.windows.net/public/az-comp.tar.gz
+    # source-checksum: sha256/f275be33ec4818665f7d49439e23208e95708a276782438d209bad9523b1b634
+    source: https://derekb.blob.core.windows.net/public/az-comp-no-alias.tar.gz
+    source-checksum: sha256/500f03af754d4371900a5e68a7c7abca97e168cf70b1a5817162f9d3447722a5
     stage:
-      - az.completion
+      - az.snap.completion
   azure-cli:
     plugin: python
     source: https://azurecliprod.blob.core.windows.net/releases/azure-cli-$SNAPCRAFT_PROJECT_VERSION.tar.gz
