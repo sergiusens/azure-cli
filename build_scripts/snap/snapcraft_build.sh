@@ -72,6 +72,8 @@ EOF
 
 echo 'snapcraft.yaml written to $snapcraft_file'
 
+cat $snapcraft_file
+
 cd $build_dir && snapcraft && cd -
 $snap_file=$build_dir/azure-cli_${CLI_VERSION}_amd64.snap
 cp $snap_file ${BUILD_ARTIFACT_DIR}
