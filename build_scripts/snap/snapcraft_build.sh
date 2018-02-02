@@ -67,6 +67,10 @@ parts:
       - libssl-dev
     stage-packages:
       - libssl1.0.0
+    prepare: |
+       set -e
+       packages_dir="$(readlink -e ../packages)"
+       /usr/bin/pip3 wheel -w $packages_dir src/azure-cli-core src/azure-cli-nspkg src/azure-cli-command_modules-nspkg src/command_modules/azure-cli-*
 
 EOF
 
