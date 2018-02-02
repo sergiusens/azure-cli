@@ -57,7 +57,7 @@ parts:
     source-subdir: src/azure-cli
     python-version: python3
     organize:
-      # PEP 394 says you should use `python3`, but the client uses `python`.
+      # PEP 394 says you should use python3, but the client uses python.
       usr/bin/python3.5: "usr/bin/python"
     build-packages:
       - build-essential
