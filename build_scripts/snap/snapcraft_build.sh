@@ -50,7 +50,7 @@ parts:
     stage:
       - az.snap.completion
   azure-cli:
-    plugin: azure
+    plugin: python
     source-type: git
     source: $CLI_SNAPCRAFT_REPO
     source-branch: $CLI_SNAPCRAFT_BRANCH_TAG
