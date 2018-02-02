@@ -15,16 +15,18 @@ apps:
 parts:
   completion:
     plugin: dump
-    source: https://github.com/Azure/azure-cli.git
-    source-tag: azure-cli-$SNAPCRAFT_PROJECT_VERSION
     source-type: git
+    source: https://github.com/derekbekoe/azure-cli.git
+    source-branch: snap-package
+    # source-tag: azure-cli-$SNAPCRAFT_PROJECT_VERSION
     stage:
       - az.snap.completion
   azure-cli:
-    plugin: python
-    source: https://github.com/Azure/azure-cli.git
-    source-tag: azure-cli-$SNAPCRAFT_PROJECT_VERSION
+    plugin: azure
     source-type: git
+    source: https://github.com/derekbekoe/azure-cli.git
+    source-branch: snap-package
+    # source-tag: azure-cli-$SNAPCRAFT_PROJECT_VERSION
     source-subdir: src/azure-cli
     python-version: python3
     organize:
@@ -38,7 +40,3 @@ parts:
       - libssl-dev
     stage-packages:
       - libssl1.0.0
-    prepare: |
-       set -e
-       packages_dir="$(readlink -e ../packages)"
-       /usr/bin/pip3 wheel -w $packages_dir src/azure-cli-core src/azure-cli-nspkg src/azure-cli-command_modules-nspkg src/command_modules/azure-cli-*
