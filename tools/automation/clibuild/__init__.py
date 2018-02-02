@@ -33,8 +33,8 @@ def build_debian(git_url, git_branch, cli_version, artifact_dir, arg_ns=None):
 def build_snap(git_url, git_branch, cli_version, artifact_dir, arg_ns=None):
     cmd = ['docker', 'run', '-d', '-e', 'CLI_VERSION=' + cli_version, '-e', 'BUILD_ARTIFACT_DIR=/artifacts',
            '-v', artifact_dir + ':/artifacts', 'snapcore/snapcraft', '/bin/bash', '-cx',
-           'apt-get update && apt-get install -y git && git clone --progress --verbose {git_url} --branch {git_branch} /repo_clone '
-           '&& /repo_clone/build_scripts/snap/snapcraft_build.sh {git_url} {git_branch}'.format(git_url=git_url, git_branch=git_branch)]
+           'apt-get update && git clone --progress --verbose {git_url} --branch {git_branch} /repo_clone '
+           '&& cd /repo_clone && build_scripts/snap/snapcraft_build.sh {git_url} {git_branch}'.format(git_url=git_url, git_branch=git_branch)]
     container_id = check_output(cmd, universal_newlines=True).strip()
     print('Snap build running. Use `docker logs -f {}`'.format(container_id))
     exit_code = check_output(['docker', 'wait', container_id], universal_newlines=True).strip()

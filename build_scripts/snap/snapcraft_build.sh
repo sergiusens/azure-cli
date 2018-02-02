@@ -40,7 +40,7 @@ grade: stable
 apps:
   az:
     command: usr/bin/python -m azure.cli
-    completer: az.snap.completion
+    completer: build_scripts/snap/az.snap.completion
 parts:
   completion:
     plugin: dump
@@ -48,7 +48,7 @@ parts:
     source: $CLI_SNAPCRAFT_REPO
     source-branch: $CLI_SNAPCRAFT_BRANCH_TAG
     stage:
-      - az.snap.completion
+      - build_scripts/snap/az.snap.completion
   azure-cli:
     plugin: python
     source-type: git
@@ -76,7 +76,7 @@ EOF
 
 echo 'snapcraft.yaml written to $snapcraft_file'
 
-printf "%s" "$(<$snapcraft_file)"
+cat $snapcraft_file
 
 cd $build_dir && snapcraft --version && snapcraft && cd -
 $snap_file=$build_dir/azure-cli_${CLI_VERSION}_amd64.snap
