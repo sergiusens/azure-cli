@@ -10,20 +10,20 @@ apps:
   az:
     # https://bugs.launchpad.net/snappy/+bug/1664427
     command: usr/bin/python -m azure.cli
-    completer: az.snap.completion
+    completer: build_scripts/snap/az.snap.completion
     aliases: [az]
 parts:
   completion:
     plugin: dump
-    source: https://github.com/Azure/azure-cli.git
-    source-tag: azure-cli-$SNAPCRAFT_PROJECT_VERSION
+    source: https://github.com/derekbekoe/azure-cli.git
+    source-branch: snap-package
     source-type: git
     stage:
-      - az.snap.completion
+      - build_scripts/snap/az.snap.completion
   azure-cli:
     plugin: python
-    source: https://github.com/Azure/azure-cli.git
-    source-tag: azure-cli-$SNAPCRAFT_PROJECT_VERSION
+    source: https://github.com/derekbekoe/azure-cli.git
+    source-branch: snap-package
     source-type: git
     source-subdir: src/azure-cli
     python-version: python3
