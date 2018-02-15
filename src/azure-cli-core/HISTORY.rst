@@ -5,7 +5,7 @@ Release History
 
 2.0.28
 ++++++
-* Minor fixes
+* Enable HTTP logging with --debug
 
 2.0.27
 ++++++
