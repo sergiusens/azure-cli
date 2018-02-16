@@ -2316,11 +2316,10 @@ def configure_network_watcher(cmd, client, locations, resource_group_name=None, 
     return client.list_all()
 
 
-def show_topology_watcher(cmd, client, resource_group_name, network_watcher_name, target_resource_group_name):
-    TopologyParameters = cmd.get_models('TopologyParameters')
+def show_topology_watcher(cmd, client, resource_group_name, network_watcher_name, target_resource_group_name):  # pylint: disable=unused-argument
     return client.get_topology(resource_group_name=resource_group_name,
                                network_watcher_name=network_watcher_name,
-                               parameters=TopologyParameters(target_resource_group_name=target_resource_group_name))
+                               target_resource_group_name=target_resource_group_name)
 
 
 def check_nw_connectivity(cmd, client, watcher_rg, watcher_name, source_resource, source_port=None,
