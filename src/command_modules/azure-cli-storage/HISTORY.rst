@@ -3,6 +3,10 @@
 Release History
 ===============
 
+2.0.26
+++++++
+* Support Autorest 3.0 based SDKs
+
 2.0.25
 ++++++
 * Added `storage blob service-properties delete-policy` and `storage blob undelete` commands to enable soft-delete.

@@ -3,6 +3,10 @@
 Release History
 ===============
 
+2.0.24
+++++++
+* Support Autorest 3.0 based SDKs
+
 2.0.23
 ++++++
 * `network public-ip create`: Fix `--tags` option.

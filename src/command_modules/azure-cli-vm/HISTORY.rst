@@ -2,9 +2,11 @@
 
 Release History
 ===============
+
 2.0.27
 ++++++
 * vmss instance update: support attach/detach disks on an individual instance
+* Support Autorest 3.0 based SDKs
 
 2.0.26
 ++++++
