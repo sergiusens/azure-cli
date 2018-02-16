@@ -5,11 +5,11 @@
 from __future__ import print_function
 
 from collections import Counter, OrderedDict
+import mock
 
 from knack.log import get_logger
 
 from msrestazure.azure_exceptions import CloudError
-from msrestazure.polling.arm_polling import ARMPolling, BadResponse
 from msrestazure.tools import parse_resource_id, is_valid_resource_id, resource_id
 
 from azure.mgmt.trafficmanager.models import MonitorProtocol
